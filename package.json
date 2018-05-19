@@ -1,0 +1,20 @@
+{
+  "name": "weatherware",
+  "version": "1.0.0",
+  "description": "a module to interact with microsofts weather api.",
+  "main": "index.js",
+  "types": "./dist/typings/index.d.ts",
+  "repository": "git@github.com:Dev-Yukine/weatherware.git",
+  "author": "Yukine <blazylp@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/snekfetch": "^3.6.0",
+    "@types/xml2js": "^0.4.2",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "snekfetch": "3.6.4",
+    "xml2js": "^0.4.19"
+  }
+}
