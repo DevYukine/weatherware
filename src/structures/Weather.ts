@@ -38,28 +38,28 @@ export default class Weather {
 	public forecast: forecast[] = [];
 
 	public constructor(data: any) {
-		const realData = data.$
+		const realData = data.$;
 
-		this.name = realData.weatherlocationname,
-		this.zipcode = realData.zipcode,
-		this.lat = realData.lat,
-		this.long = realData.long,
-		this.timezone = realData.timezone,
-		this.alert = realData.alert,
-		this.degreetype = realData.degreetype,
-		this.imagerelativeurl = realData.imagerelativeurl
+		this.name = realData.weatherlocationname;
+		this.zipcode = realData.zipcode;
+		this.lat = realData.lat;
+		this.long = realData.long;
+		this.timezone = realData.timezone;
+		this.alert = realData.alert;
+		this.degreetype = realData.degreetype;
+		this.imagerelativeurl = realData.imagerelativeurl;
 
 		if (data.current instanceof Array && data.current.length > 0) {
-            if (typeof data.current[0].$ === 'object') {
-              this.current = data.current[0].$ as Current;
-              this.current.imageUrl = `${this.imagerelativeurl}law/${this.current.skycode}.gif`;
-            }
+			if (typeof data.current[0].$ === 'object') {
+			  this.current = data.current[0].$ as Current;
+			  this.current.imageUrl = `${this.imagerelativeurl}law/${this.current.skycode}.gif`;
+			}
 		}
 		
 		if (data.forecast instanceof Array) {
 			for (const forecast of data.forecast) {
-				if (typeof forecast === 'object') this.forecast.push(forecast)
+				if (typeof forecast === 'object') this.forecast.push(forecast);
 			}
-        }
+		}
 	}
 }

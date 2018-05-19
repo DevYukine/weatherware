@@ -27,7 +27,7 @@ export class Client {
 			.query('src', 'outlook')
 			.query('weadegreetype', options.degreeType || this.defDegreeType)
 			.query('culture', options.language || this.defLanguage)
-			.query('weasearchstr', escape(options.query))
+			.query('weasearchstr', escape(options.query));
 
 		return this.parse(text);
 	}
@@ -37,7 +37,7 @@ export class Client {
 			parseString(data, (err, result) => {
 				if (err) return reject(err);
 
-				if (result.weatherdata.weather.$ && result.weatherdata.weather.$.errormessage) return reject(new Error(result.weatherdata.weather.$.errormessage))
+				if (result.weatherdata.weather.$ && result.weatherdata.weather.$.errormessage) return reject(new Error(result.weatherdata.weather.$.errormessage));
 				
 				if(!result || !result.weatherdata || !result.weatherdata.weather) return reject(new Error('failed to parse weather data'));
 				
@@ -46,7 +46,7 @@ export class Client {
 				const parsedWeather: Array<Weather> = [];
 				for (const weather of result.weatherdata.weather) {
 					if (typeof weather !== 'object') continue;
-					parsedWeather.push(new Weather(weather))
+					parsedWeather.push(new Weather(weather));
 				}
 
 				return resolve(parsedWeather);
