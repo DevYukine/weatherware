@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/typings/index.d.ts",
   "repository": "git@github.com:Dev-Yukine/weatherware.git",
-  "author": "Yukine <blazylp@gmail.com>",
+  "author": "Yukine <devyukine@gmx.de>",
   "license": "MIT",
   "private": false,
   "devDependencies": {
