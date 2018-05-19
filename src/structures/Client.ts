@@ -1,5 +1,5 @@
-import Weather from './structures/Weather';
-import { baseURL } from './Util/Constants';
+import Weather from './Weather';
+import { baseURL } from '../Util/Constants';
 import { parseString } from 'xml2js';
 import { escape } from 'querystring';
 import { get } from 'snekfetch';
