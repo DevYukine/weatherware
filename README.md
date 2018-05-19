@@ -16,7 +16,7 @@ client.getWeather({ query: 'city name or zipcode' })
 
 Javascript:
 ```js
-const { Client } = require('weebts');
+const { Client } = require('weatherware');
 
 const client = new Client({ language: 'default Language (can be overriden in the getWeather method)', degreeType: 'default degreeType (can be overriden in the getWeather method)' });
 
