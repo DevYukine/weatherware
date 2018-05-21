@@ -11,7 +11,8 @@
   "devDependencies": {
     "@types/snekfetch": "^3.6.0",
     "@types/xml2js": "^0.4.2",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "tslint": "^5.10.0"
   },
   "dependencies": {
     "snekfetch": "3.6.4",

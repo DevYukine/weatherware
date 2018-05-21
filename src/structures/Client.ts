@@ -5,21 +5,21 @@ import { escape } from 'querystring';
 import { get } from 'snekfetch';
 
 export interface DefaultWeatherOptions {
-	language?: string,
-	degreeType?: string
+	language?: string;
+	degreeType?: string;
 }
 
 export interface WeatherOptions extends DefaultWeatherOptions {
-	query: string
+	query: string;
 }
 
 export class Client {
-	private defLanguage: string = 'en-us';
-	private defDegreeType: string = 'C';
+	private defLanguage = 'en-us';
+	private defDegreeType = 'C';
 
 	public constructor(options: DefaultWeatherOptions = {}) {
-		if(options.language) this.defLanguage = options.language;
-		if(options.degreeType) this.defDegreeType = options.degreeType;
+		if (options.language) this.defLanguage = options.language;
+		if (options.degreeType) this.defDegreeType = options.degreeType;
 	}
 
 	public async getWeather(options: WeatherOptions): Promise<Weather[]> {
@@ -38,10 +38,10 @@ export class Client {
 				if (err) return reject(err);
 
 				if (result.weatherdata.weather.$ && result.weatherdata.weather.$.errormessage) return reject(new Error(result.weatherdata.weather.$.errormessage));
-				
-				if(!result || !result.weatherdata || !result.weatherdata.weather) return reject(new Error('failed to parse weather data'));
-				
-				if(!(result.weatherdata.weather instanceof Array)) return reject(new Error('missing weather info'));
+
+				if (!result || !result.weatherdata || !result.weatherdata.weather) return reject(new Error('failed to parse weather data'));
+
+				if (!(result.weatherdata.weather instanceof Array)) return reject(new Error('missing weather info'));
 
 				const parsedWeather: Array<Weather> = [];
 				for (const weather of result.weatherdata.weather) {
@@ -50,7 +50,7 @@ export class Client {
 				}
 
 				return resolve(parsedWeather);
-			})
-		})
+			});
+		});
 	}
 }
