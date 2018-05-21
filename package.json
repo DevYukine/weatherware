@@ -1,6 +1,6 @@
 {
   "name": "weatherware",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a module to interact with microsofts weather api.",
   "main": "./dist/index.js",
   "types": "./dist/typings/index.d.ts",
@@ -11,8 +11,8 @@
   "devDependencies": {
     "@types/snekfetch": "^3.6.0",
     "@types/xml2js": "^0.4.2",
-    "typescript": "^2.8.3",
-    "tslint": "^5.10.0"
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "snekfetch": "3.6.4",
