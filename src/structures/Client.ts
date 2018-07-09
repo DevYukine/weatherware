@@ -2,7 +2,7 @@ import Weather from './Weather';
 import { baseURL } from '../Util/Constants';
 import { parseString } from 'xml2js';
 import { escape } from 'querystring';
-import { get } from 'snekfetch';
+import fetch from 'node-fetch';
 
 export interface DefaultWeatherOptions {
 	language?: string;
@@ -23,13 +23,14 @@ export class Client {
 	}
 
 	public async getWeather(options: WeatherOptions): Promise<Weather[]> {
-		const { text } = await get(baseURL)
-			.query('src', 'outlook')
-			.query('weadegreetype', options.degreeType || this.defDegreeType)
-			.query('culture', options.language || this.defLanguage)
-			.query('weasearchstr', escape(options.query));
+		const res = await fetch(`${baseURL}?src=outlook&weadegreetype=${options.degreeType || this.defDegreeType}&culture=${options.language || this.defLanguage}&weasearchstr=${escape(options.query)}`);
 
-		return this.parse(text);
+		if (res.ok) {
+			const text = await res.text();
+			return this.parse(text);
+		} else {
+			throw new Error(`${res.status} ${res.statusText}`);
+		}
 	}
 
 	private parse(data: string): Promise<Weather[]> {
